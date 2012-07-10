@@ -218,6 +218,12 @@ describe "BootstrapForms::FormBuilder" do
         end
       end
     end # actions
+    
+    describe "with no control group" do
+      it "text field" do
+        @builder.text_field(:name, :control_group => false).should == "<div><label for=\"item_name\">Name</label><input id=\"item_name\" name=\"item[name]\" size=\"30\" type=\"text\" /></div>"
+      end
+    end # no control group
   end # setup builder
 
 end
