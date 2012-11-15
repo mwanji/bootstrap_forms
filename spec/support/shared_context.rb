@@ -142,6 +142,10 @@ shared_examples "a bootstrap form" do
       it "prepends and appends passed text" do
         @builder.text_field(:name, :append => '@', :prepend => '#').should == "<div class=\"control-group\"><label class=\"control-label\" for=\"item_name\">Name</label><div class=\"controls\"><div class=\"input-prepend input-append\"><span class=\"add-on\">\#</span><input id=\"item_name\" name=\"item[name]\" size=\"30\" type=\"text\" /><span class=\"add-on\">@</span></div></div></div>"
       end
+      
+      it "does not add control group" do
+        @builder.text_field(:name, :control_group => false).should == "<div><label for=\"item_name\">Name</label><input id=\"item_name\" name=\"item[name]\" size=\"30\" type=\"text\" /></div>"
+      end
     end
 
     context "label option" do
